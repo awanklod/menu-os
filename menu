@@ -39,7 +39,7 @@ fi
 function Rename() {
 clear
 echo -e "${YELLOW}----------------------------------------------------------${NC}"
-echo -e "\033[96;1m                      Welcome To Script XWANSTORE              \033[0m"
+echo -e "\033[96;1m                      Welcome To Script PREMIUM              \033[0m"
 echo -e "${YELLOW}----------------------------------------------------------${NC}"
 echo ""
 sleep 3s
@@ -70,7 +70,7 @@ print_success "Rename Script"
 sleep 3
 menu
 else
-echo "XWANSTORE" > /etc/xray/username
+echo "PREMIUM" > /etc/xray/username
 clear
 echo -e "${RED} Mohon Maaf Sepertinya Anda Bukan Owner ${NC}"
 sleep 3
@@ -82,8 +82,8 @@ clear
     echo -e "            \033[91;1mPERMISSION DENIED !\033[0m"
     echo -e "     \033[0;33mBuy access permissions for scripts\033[0m"
     echo -e "             \033[0;33mContact Admin :\033[0m"
-    echo -e "      \033[2;32mWhatsApp\033[0m wa.me/6287769315399"
-	echo -e "      \033[2;32mTelegram\033[0m t.me/kytxz"
+    echo -e "      \033[2;32mWhatsApp\033[0m wa.me/N"
+	echo -e "      \033[2;32mTelegram\033[0m t.me/N"
     echo -e "\033[1;93m────────────────────────────────────────────\033[0m"
     sleep 3
     print_success "Script Name Default"
@@ -92,7 +92,7 @@ clear
 fi
 elif [[ $host == "2" ]]; then
 rm /etc/xray/username
-echo "XWAN_STORE" > /etc/xray/username
+echo "PREMIUM" > /etc/xray/username
 clear
 print_success "Script Name Default"
 sleep 3
@@ -102,10 +102,10 @@ fi
 ######################################
 # // USERNAME IZIN IPP
 rm -f /usr/bin/user
-username=$(curl -sS https://raw.githubusercontent.com/myridwan/izinvps/ipuk/ipx | grep -wE $MYIP | awk '{print $2}')
+username=$(curl -sS https://raw.githubusercontent.com/awanklod/izin_jual/main/ip | grep -wE $MYIP | awk '{print $2}')
 echo "$username" >/usr/bin/user
 rm -f /usr/bin/e
-valid=$(curl -sS https://raw.githubusercontent.com/myridwan/izinvps/ipuk/ipx | grep -wE $MYIP | awk '{print $3}')
+valid=$(curl -sS https://raw.githubusercontent.com/awanklod/izin_jual/main/ip | grep -wE $MYIP | awk '{print $3}')
 echo "$valid" > /usr/bin/e
 
 clear
@@ -257,6 +257,8 @@ echo -e "\033[96;1m│  \e[34m3.)\e[93m☞ \e[97m XRAY TROJAN         \e[34m9.)\
 echo -e "\033[96;1m│  \e[34m4.)\e[93m☞ \e[97m SLOWDNS            \e[34m10.)\e[93m☞ \e[97m FEATURES       \e[96;1m│\e[0m"
 echo -e "\033[96;1m│  \e[34m5.)\e[93m☞ \e[97m REGIS IP           \e[34m11.)\e[93m☞ \e[97m REBOOT         \e[96;1m│\e[0m"
 echo -e "\033[96;1m│  \e[34m6.)\e[93m☞ \e[97m MENU REBUILD        \e[31mx.)\e[93m☞ \e[91m EXIT           \e[96;1m│\e[0m"
+echo -e "\033[96;1m│  \e[34m12.)\e[93m☞ \e[97m NOOBZVPS            \e[31m13.)\e[93m☞ \e[91m MENU-SSR           \e[96;1m│\e[0m"
+
 echo -e "\033[96;1m└─────────────────────────────────────────────────┘\033[0m"
 }
 
@@ -273,10 +275,12 @@ case $hallo in
 5) clear ; regisip ;; # menu sadowsocks
 6) clear ; m-rebuild ;; # menu admin
 7) clear ; m-bot ;; # menu bot telegram
-8) clear ; wget -q https://v4.serverpremium.web.id:81/os/menu/update.sh && chmod +x update.sh && ./update.sh ;; #Update script
+8) clear ; wget -q https://raw.githubusercontent.com/awanklod/os/main/menu/update.sh && chmod +x update.sh && ./update.sh ;; #Update script
 9) clear ; m-bkp ;; # menu backup
 10) clear ; m-ftr ;; # menu managers
 11) clear ; reboot ;; # limit ip on off
+12) clear ; m-ssr ;; # menu sadowsocks
+13) clear ; m-noobz ;; # menu noobzvps
 *) welcome ;; # Back To Home Welcome
 esac
 }
