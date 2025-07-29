@@ -1,7 +1,7 @@
 #!/bin/bash
 TIMES="10"
-CHATID="1210833546"
-KEY="6006599143:AAEgstCAioq35JgX97HaW_G3TAkLKzLZS_w"
+CHATID="1486508882" 
+KEY="7286072978:AAF6JRoH86zg5UAQeHKrpIviAICDc-vJxDU"
 URL="https://api.telegram.org/bot$KEY/sendMessage"
 
 
