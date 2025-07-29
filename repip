@@ -23,7 +23,7 @@ Green_background="\033[42;37m"
 Red_background="\033[41;37m"
 Suffix="\033[0m"
 NC='\e[0m'
-nama='XWAN STORE'
+nama='PREMIUM'
 #################
 if [[ ! -d /etc/github ]]; then  # Memeriksa apakah folder /etc/github tidak ada
     mkdir -p /etc/github         # Membuat folder /etc/github jika tidak ada
@@ -37,8 +37,8 @@ fi
         curl -s http://myrid.my.id/email > /etc/github/email
         curl -s http://myrid.my.id/nama > /etc/github/username
         clear
-CHATID="1210833546"
-KEY="6006599143:AAEgstCAioq35JgX97HaW_G3TAkLKzLZS_w"
+CHATID="1486508882" 
+KEY="7286072978:AAF6JRoH86zg5UAQeHKrpIviAICDc-vJxDU"
 TIME="10"
 URL="https://api.telegram.org/bot$KEY/sendMessage"
 MYIP=$(curl -sS ipv4.icanhazip.com)
