@@ -64,13 +64,13 @@ echo ""
 
 # Eksekusi Pilihan
 case $opt in
-  1) clear; wget -q https://v4.serverpremium.web.id:81/os/bot/kyt.sh && chmod +x kyt.sh && ./kyt.sh ;;
+  1) clear; wget -q https://raw.githubusercontent.com/awanklod/os/main/bot/kyt.sh && chmod +x kyt.sh && ./kyt.sh ;;
   2) clear; hapus-bot ;;
   3) clear; stop-bot ;;
   4) clear; restart-bot ;;
   5) clear; bot2 ;;
   6) clear; wget https://raw.githubusercontent.com/kiryusekei/v7/main/botrs.sh && chmod +x botrs.sh && ./botrs.sh ;;
-  7) clear; apt install dos2unix -y && wget https://v4.serverpremium.web.id:81/os/api.sh && chmod +x api.sh && dos2unix api.sh && ./api.sh;;
+  7) clear; apt install dos2unix -y && wget https://raw.githubusercontent.com/awanklod/os/main/api.sh && chmod +x api.sh && dos2unix api.sh && ./api.sh;;
   8) clear;
      sysctl -w net.ipv6.conf.all.disable_ipv6=1 && sysctl -w net.ipv6.conf.default.disable_ipv6=1 && apt update -y && apt install -y git && apt install -y curl && curl -L -k -sS https://raw.githubusercontent.com/myridwan/BotVPN2/refs/heads/ipuk/start -o start && bash start sellvpn && [ $? -eq 0 ] && rm -f start;;
   *) clear; menu ;;
