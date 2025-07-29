@@ -44,7 +44,7 @@ fun_bar() {
 # Fungsi Backupp sebelum Reset
 Backup() {
 CHATID=$(grep -E "^#bot# " "/etc/bot/.bot.db" | cut -d ' ' -f 3)
-KEY="6006599143:AAEgstCAioq35JgX97HaW_G3TAkLKzLZS_w"
+KEY="7286072978:AAF6JRoH86zg5UAQeHKrpIviAICDc-vJxDU"
 export TIME="10"
 export URL="https://api.telegram.org/bot$KEY/sendMessage"
 clear
@@ -264,8 +264,8 @@ clear
     echo -e "            \033[91;1mPERMISSION DENIED !\033[0m"
     echo -e "     \033[0;33mBuy access permissions for scripts\033[0m"
     echo -e "             \033[0;33mContact Admin :\033[0m"
-    echo -e "      \033[2;32mWhatsApp\033[0m wa.me/6287769315399"
-	echo -e "      \033[2;32mTelegram\033[0m t.me/kytxz"
+    echo -e "      \033[2;32mWhatsApp\033[0m wa.me/none"
+	echo -e "      \033[2;32mTelegram\033[0m t.me/none"
     echo -e "\033[1;93m────────────────────────────────────────────\033[0m"
 	echo ""
 	echo -e "	\033[0;33mKembali Ke Menu Dalam 3 Detik\033[0m"
