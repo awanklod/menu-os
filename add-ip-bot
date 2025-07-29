@@ -26,13 +26,13 @@ NC='\e[0m'
 nama=$(cat /etc/xray/username)
 #################
 CHATIDD=$(grep -E "^#bot# " "/etc/bot/.bot.db" | cut -d ' ' -f 3)
-CHATID="1210833546"
-KEY="6006599143:AAEgstCAioq35JgX97HaW_G3TAkLKzLZS_w"
+#CHATID="1210833546"
+#KEY="6006599143:AAEgstCAioq35JgX97HaW_G3TAkLKzLZS_w"
 TIMES="10"
 URL="https://api.telegram.org/bot$KEY/sendMessage"
 MYIP=$(curl -sS ipv4.icanhazip.com)
-TOKEN="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"
-REPO="https://raw.githubusercontent.com/myridwan/izinvps/ipuk/ipx"
+#TOKEN="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"
+REPO="https://raw.githubusercontent.com/awanklod/izin_jual/main/ip"
 EMAIL="alnurridwan112@gmail.com"
 USER="myridwan"
 
