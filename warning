@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Mendapatkan file dari Github dan membaca URL yang ada di dalamnya
-data_ip_list="https://raw.githubusercontent.com/riot5758/permission/main/ipmini"
+data_ip_list="https://raw.githubusercontent.com/awanklod/izin_jual/main/ip"
 
 ipsaya=$(hostname -I | awk '{print $1}')
 data_server=$(curl -v --insecure --silent https://google.com/ 2>&1 | grep Date | sed -e 's/< Date: //')
@@ -44,8 +44,8 @@ checking_sc() {
 	echo -e "  \033[91m⚠️ Lisensi yang Anda beli PALSU! ⚠️\033[0m"
 	echo -e "  \033[0;33m💡 Beli izin resmi hanya dari Admin!\033[0m"
 	echo -e ""
-	echo -e "  \033[92;1m📞 Contact Admin: wa.me/6285691670272\033[0m"
-	echo -e "  \033[96m🌍 Telegram: t.me/kytxz\033[0m"
+	echo -e "  \033[92;1m📞 Contact Admin: wa.me/NONE\033[0m"
+	echo -e "  \033[96m🌍 Telegram: t.me/AMIQYU\033[0m"
 	echo -e ""
 	echo -e "\033[1;93m────────────────────────────────────────────\033[0m"
     sleep 3
