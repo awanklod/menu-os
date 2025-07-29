@@ -1,0 +1,101 @@
+#!/bin/bash
+# My Telegram : https://t.me/sampiiiiu
+
+# =============== WARNA ===============
+RED='\033[0;31m'
+NC='\033[0m'
+GREEN='\033[0;32m'
+ORANGE='\033[0;33m'
+BLUE='\033[0;34m'
+PURPLE='\033[0;35m'
+CYAN='\033[0;36m'
+LIGHT='\033[0;37m'
+
+# =============== KONFIG ===============
+CHATID="1210833546"
+KEY="6006599143:AAEgstCAioq35JgX97HaW_G3TAkLKzLZS_w"
+IP=$(curl -sS ipv4.icanhazip.com)
+domain=$(cat /etc/xray/domain)
+date=$(date +"%Y-%m-%d")
+zipname="$IP-$date.zip"
+
+# =============== CEK EMAIL ===============
+email=$(cat /root/email 2>/dev/null)
+if [[ -z "$email" ]]; then
+    read -rp "Masukkan Email Untuk Menerima Backup: " -e email
+    echo "$email" > /root/email
+fi
+
+clear
+echo -e "${CYAN}🔄 Mohon tunggu, proses backup sedang berlangsung...${NC}"
+
+# =============== PROSES BACKUP ===============
+rm -rf /root/backup
+mkdir -p /root/backup/qt
+
+cp /etc/passwd /root/backup/
+cp /etc/group /root/backup/
+cp /etc/shadow /root/backup/
+cp /etc/gshadow /root/backup/
+cp /etc/crontab /root/backup/
+cp /etc/vmess/.vmess.db /root/backup/ 2>/dev/null
+cp /etc/ssh/.ssh.db /root/backup/ 2>/dev/null
+cp /etc/vless/.vless.db /root/backup/ 2>/dev/null
+cp /etc/trojan/.trojan.db /root/backup/ 2>/dev/null
+cp /etc/bot/.bot.db /root/backup/ 2>/dev/null
+cp -r /etc/kyt/limit /root/backup/ 2>/dev/null
+cp -r /etc/limit /root/backup/qt/ 2>/dev/null
+cp -r /etc/vmess /root/backup/ 2>/dev/null
+cp -r /etc/trojan /root/backup/ 2>/dev/null
+cp -r /etc/vless /root/backup/ 2>/dev/null
+cp -r /etc/slowdns /root/backup/ 2>/dev/null
+cp -r /var/lib/kyt/ /root/backup/kyt 2>/dev/null
+cp -r /etc/xray /root/backup/xray 2>/dev/null
+cp -r /var/www/html/ /root/backup/html 2>/dev/null
+
+if [[ -f "/root/BotVPN2/sellvpn.db" ]]; then
+    cp /root/BotVPN2/sellvpn.db /root/backup/
+    echo "📦 Membackup database sellvpn.db..."
+fi
+
+cd /root
+zip -r "$zipname" backup > /dev/null 2>&1
+
+# =============== UPLOAD KE GDRIVE ===============
+rclone copy "/root/$zipname" dr:backup/
+url=$(rclone link "dr:backup/$zipname")
+id=$(echo "$url" | grep '^https' | cut -d'=' -f2)
+link="https://drive.google.com/u/4/uc?id=${id}&export=download"
+
+# =============== KIRIM VIA EMAIL ===============
+echo -e "
+Detail Backup
+==================================
+IP VPS        : $IP
+Link Backup   : $link
+Tanggal       : $date
+==================================
+" | mail -s "Backup Data VPS $IP" "$email"
+
+# =============== KIRIM NOTIF TELEGRAM ===============
+MESSAGE="⚠️ *BACKUP SELESAI* ⚠️
+📌 *IP VPS*     : \`$IP\`
+🌐 *Domain*     : \`$domain\`
+📅 *Tanggal*    : \`$date\`
+
+🔗 *Link Download Backup:*
+$link
+
+Silakan salin link dan restore di VPS baru."
+
+curl -s -X POST "https://api.telegram.org/bot$KEY/sendMessage" \
+     -d "chat_id=$CHATID" \
+     -d "text=$MESSAGE" \
+     -d "parse_mode=Markdown"
+
+# =============== HAPUS FILE ===============
+rm -rf /root/backup
+rm -f "/root/$zipname"
+
+clear
+echo -e "${GREEN}✅ Backup selesai. Silakan cek link backup di Telegram atau email Anda.${NC}"
