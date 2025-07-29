@@ -52,8 +52,8 @@ if [[ -n "$data_ip" || "$data_ip" -gt 0 ]]; then
     echo -e "   \033[0;33mYour VPS\033[0m $MYIP \033[0;33mTIDAK DIIZINKAN\033[0m"
     echo -e "     \033[0;33mBuy access permissions for scripts\033[0m"
     echo -e "             \033[0;33mContact Admin :\033[0m"
-    echo -e "      \033[2;32mWhatsApp\033[0m wa.me/6287769315399"
-	echo -e "      \033[2;32mTelegram\033[0m t.me/kytxz"
+    echo -e "      \033[2;32mWhatsApp\033[0m wa.me/B"
+	echo -e "      \033[2;32mTelegram\033[0m t.me/B"
     echo -e "\033[1;93m────────────────────────────────────────────\033[0m"
     sleep 4
 exit && menu
